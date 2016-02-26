@@ -1,6 +1,6 @@
 $(document).ready(function() {
     
-var box = 16;
+var box = 40;
 var squareNumber = 1;
 var rowNumber = 1;
 
@@ -19,5 +19,8 @@ for(i = 0; i < box; i++) {
 for(i = 0; i < box; i++) {
     $("#grid").append("<div class='square'></div>");
 }
+
+var gridSize = $(".square").height();
+$(".square").height(gridSize/box);
 
 });
