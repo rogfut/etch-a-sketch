@@ -1,7 +1,9 @@
 
 
 $(document).ready(function() {
-   createGrid(); 
+   configureGrid();
+   buttonBar();
+   randomColor();
 });
 
 //declaring global vars
@@ -16,26 +18,13 @@ function randomColor () {
     var green = Math.floor((Math.random() * 255) + 1);
     var blue = Math.floor((Math.random() * 255) + 1);
 }
-   
-//creates a grid based on user input
-function createGrid () {
-    //sets the square background to transparent on button click
-    $("#btnclear").click(function() {
-        $(".square").css("background", "darkgrey")
-    })
-    
-    //sets the square background to be random after being clicked
-    $("#btnunicorn").click(function() {
-        randomColor();
-        squareColor = "rgb(" + red + "," + green + "," + blue + ')';
-    })
-    
-    //sets the square background to be black after being clicked
-    $("btnblack").click(function() {
-        squareColor = "#000000";
-    })
-    
-    //asks user to input a number, if no number is given value is set at 10    
+
+//asks user to input a number, if no number is given value is set at 10
+function configureGrid () {
+    //reset the grid to default
+    $(".square").remove();
+    $("#container").css("border", "0px solid transparent")
+        
     var numSquares = prompt("Input a number between 1 and 32");
     if  (numSquares === null) {
         var numSquares = 10
@@ -52,7 +41,7 @@ function createGrid () {
     var containerWidth = ($("#container").width()) / numSquares;
     $(".square").css("width", containerWidth);
     $(".square").css("height", containerWidth);
-
+    
     //sets the background color of the squares on mouse enter
     $(".square").mouseenter(function() {
         $(this).css('background-color', squareColor)
@@ -60,7 +49,23 @@ function createGrid () {
     
     //sets the container border
     $("#container").css("border", "40px solid red")
+}
 
-
+function buttonBar () {
+    //sets the square background to transparent on button click
+    $("#btnclear").click(function() {
+        configureGrid();
+    })
+    
+    //sets the square background to be random after being clicked
+    $("#btnunicorn").click(function() {
+        randomColor();
+        squareColor = "rgb(" + red + "," + green + "," + blue + ')';
+    })
+    
+    //sets the square background to be black after being clicked
+    $("btnblack").click(function() {
+        squareColor = "#000000";
+    })
 }
 
