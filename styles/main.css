@@ -45,6 +45,7 @@ button {
     font-family: "roboto";
 }
 
+/*
 #btnresize {
     float: left;
     position: relative;
@@ -57,6 +58,7 @@ button {
     font-size: 38px;
     font-family: "roboto";
 }
+*/
 
 #btnunicorn {
     background: red;

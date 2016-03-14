@@ -7,9 +7,6 @@ $(document).ready(function() {
 });
 
 //declaring global vars
-var red;
-var green;
-var blue;
 var squareColor = "#444242";
 
 //sets random values for red, green, blue to be used by CSS
@@ -17,6 +14,7 @@ function randomColor () {
     var red = Math.floor((Math.random() * 255) + 1);
     var green = Math.floor((Math.random() * 255) + 1);
     var blue = Math.floor((Math.random() * 255) + 1);
+    return "rgb(" + red + "," + green + "," + blue + ")";
 }
 
 //asks user to input a number, if no number is given value is set at 10
@@ -59,13 +57,21 @@ function buttonBar () {
     
     //sets the square background to be random after being clicked
     $("#btnunicorn").click(function() {
-        randomColor();
-        squareColor = "rgb(" + red + "," + green + "," + blue + ')';
+        $(".square").mouseenter(function() {
+            $(this).css("background-color", randomColor());
+        })
     })
     
     //sets the square background to be black after being clicked
-    $("btnblack").click(function() {
-        squareColor = "#000000";
+    $("#btnblack").click(function() {
+        $(".square").mouseenter(function() {
+            $(this).css("background-color", "#000000");
+        })
+    })
+    
+    //sets the square background to be a random greyscale color after being clicked
+    $("#btngreyscale").click(function() {
+        
     })
 }
 
