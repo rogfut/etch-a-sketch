@@ -14,4 +14,4 @@ This code meets all the requirements - including the optional ones - for the odi
 
 The purpose of this project is to show jquery + DOM manipulation skills.
 
-I made this back in 2018.  As such, there are probably some bugfixes/improvements I would make if I had to do this project over today now that I have additional experience under my belt.
+I made this back in 2016.  As such, there are probably some bugfixes/improvements I would make if I had to do this project over today now that I have additional experience under my belt.
